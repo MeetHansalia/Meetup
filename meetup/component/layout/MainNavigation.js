@@ -1,18 +1,18 @@
 import Link from 'next/link'
-import './MainNavigation.css'
+import classes from './MainNavigation.module.css'
 
 function MainNavigation(){
 
     return(
-        <header className="header">
-            <div className="logo">Meetups</div>
+        <header className={classes.header}>
+            <div className={classes.logo}>Meetups</div>
             <nav>
                 <ul>
                     <li>
-                        <Link to='/'>All Meetups</Link>
+                        <Link href='/'>All Meetups</Link>
                     </li>
                     <li>
-                        <Link to='/new-meetup'>Add New Meetups</Link>
+                        <Link href='/new-meetup'>Add New Meetups</Link>
                     </li>
                 </ul>
             </nav>
