@@ -12,5 +12,43 @@ function MeetupDetails(){
     );
 }
 
+export async function getStaticPaths(){
+    return{
+        fallback: false,
+        paths:[
+            { params:{
+                meetupId:'m1',
+              },
+
+            },
+            { params:{
+                meetupId:'m2',
+              },
+
+            },
+        ]
+    }
+}
+
+
+export async function getStaticProps(context){
+
+    const meetupId = context.params.meetupId;
+
+    console.log(meetupId)
+
+    return{
+        props:{
+            meetupData:{
+                image:"https://en.wikipedia.org/wiki/New_Town_Hall_(Munich)#/media/File:Alter_Peter_&_Christkindlmarkt.jpg",
+                id:meetupId,
+                title: 'First Meetup',
+                address: 'Some Street 5, Some City',
+                description:'This is a first meetup',
+            },
+        },
+    }
+}
+
 
 export default MeetupDetails;
