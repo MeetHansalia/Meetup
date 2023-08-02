@@ -11,7 +11,7 @@ async function handler(req, res){
 
         
     
-        const client = await MongoClient.connect('mongodb+srv://killerhyper2:02639f1FVauVav3y@cluster0.su7njye.mongodb.net/meetups?retryWrites=true&w=majority');
+        const client = await MongoClient.connect('mongodb+srv://killerhyper2:RTZ83SgkRDwbIHrP@cluster0.azcsupq.mongodb.net/meetups?retryWrites=true&w=majority');
         const db = client.db();
 
         const meetupsCollection = db.collection('meetups');
