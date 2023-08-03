@@ -1,7 +1,9 @@
 
 // import { useEffect, useState } from "react";
+import Head from "next/head.js";
 import MeetupList from "../component/meetups/MeetupList.js";
 import { MongoClient } from "mongodb";
+import { Fragment } from "react";
 
 function HomePage(props){
     // const [loadedMeetups, setLoadedMeetups] = useState([])
@@ -12,8 +14,14 @@ function HomePage(props){
     // },[])
 
 
-    return(       
-        <MeetupList meetups ={props.meetups}/>
+    return(   
+        <Fragment>   
+            <Head>
+                <title>Meetups</title>
+                <meta name="description" content="Browse a huge list of highly active meetups" /> 
+            </Head>
+            <MeetupList meetups ={props.meetups}/>
+        </Fragment> 
     )
 }
  
@@ -33,7 +41,7 @@ function HomePage(props){
 export async function getStaticProps(){
 
     const client = await MongoClient.connect(
-        'mongodb+srv://killerhyper2:RTZ83SgkRDwbIHrP@cluster0.azcsupq.mongodb.net/meetups?retryWrites=true&w=majority'
+        'mongodb+srv://killerhyper2:jKcVaRdKPMRJlS9F@cluster0.azcsupq.mongodb.net/?retryWrites=true&w=majority'
     );
     
     const db = client.db();
